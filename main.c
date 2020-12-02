@@ -13,26 +13,21 @@ void scambia(int v[], int dim, int i, int j){
     }
 }
 
-int minimo(int a[], int dim){
-
-    int i = 0, min = a[0];
-
-    while(i < dim)
+int minimo(int a[], int dim)
     {
-        if(a[i] < min)
+
+    int valoreMinimo = a[0], locazione = 0, i;
+
+    for(i=0; i < dim; i++)
+    {
+        if ( a[i] < valoreMinimo ) 
         {
-
-            min = i;
-
-        } else {
-
-            i++;
+            valoreMinimo = a[i];
+            locazione = i;
         }
+    } 
     
-        
-    }
-    
-    return min;
+    return locazione;
 }
 
 void stampa_vettore(int a[], int dim)

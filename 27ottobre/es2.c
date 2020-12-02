@@ -4,42 +4,47 @@ void scambia(int v[], int dim, int i, int j){
 
     if(dim > 0)
     {
-        if((i > 0) && (i <= dim-1) && (j > 0) && (j <= dim-1))
+        if((i >= 0) && (i <= dim) && (j >= 0) && (j <= dim))
         {
             int tmp = v[i];
             v[i] = v[j];
             v[j] = tmp;
         }
     }
-
 }
 
-int minimo(int a[], int dim){
-
-    int i, min = 9999;
-    int indice;
-
-    while(i < dim)
+int minimo(int a[], int dim)
     {
-        if(a[i] < min)
+
+    int valoreMinimo = a[0], locazione = 0, i;
+
+    for(i=0; i < dim; i++)
+    {
+        if ( a[i] < valoreMinimo ) 
         {
-
-            indice = i;
-
+            valoreMinimo = a[i];
+            locazione = i;
         }
+    } 
     
-        i++;
-    }
-    
-    return indice;
+    return locazione;
 }
 
+void stampa_vettore(int a[], int dim)
+{
+
+    for(int i=0; i<dim; i++)
+    {
+        printf("a[%d] = ", i);
+        printf("%d\n", a[i]);
+    }
+}
 
 int main(void) {
     int dim, indice;
     int i = 0;
 
-    printf("inserire dimensione array: "); 
+    printf("\nInserire dimensione array: "); 
     scanf("%d", &dim);
     int a[dim];
 
@@ -50,10 +55,17 @@ int main(void) {
         scanf("%d", &a[i]);
     }
     
+    printf("\n");
+
     indice = minimo(a, dim);
-
+    printf("-------------------------------\n");
+    printf("L'indice minore è: %d\n", indice);
     
+    scambia(a,dim, 0, indice);
 
+    printf("\nQuesto è l'array con il valore minimo in testa:\n");
+
+    stampa_vettore(a, dim);
     
     return 0;
 
