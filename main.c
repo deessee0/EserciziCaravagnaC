@@ -1,17 +1,45 @@
 #include<stdio.h>
 #include <stdlib.h>
 
-int delta_minimo(int a[], int n, int dim)
-{
+int minimo(int a[], int dim)
+    {
+
+    int valoreMinimo = a[0], locazione = 0, i;
+
+    for(i=0; i < dim; i++)
+    {
+        if ( a[i] < valoreMinimo ) 
+        {
+            valoreMinimo = a[i];
+            locazione = i;
+        }
+    } 
     
+    return valoreMinimo;
+}
+
+void delta_minimo(int a[], int n, int dim)
+{
+    int differenza[dim];
+    int risultato;
+
+
     for(int i = 0; i<dim; i++)
     {
-        if(abs(a[i]) )
+        if(abs(a[i]) > n)
+        {
+            differenza[i] = abs(a[i]) - n;
+            
+        }   else   {
+
+            differenza[i] = n - abs(a[i]);
+        }         
     }
+
+    risultato = minimo(differenza, dim); 
     
-    
-    
-    return 0;
+    printf("----------------------------\nIntero in valore assoluto più vicino a quello fornito: %d", risultato);
+
 }
 
 void stampa_vettore(int a[], int dim)
@@ -47,9 +75,10 @@ int main(void) {
 
     printf("----------------------------\nVettore inserito:\n");
     stampa_vettore(a, dim);
-    printf("----------------------------\nIntero in valore assoluto più vicino a quello fornito: ");
-    risultato = delta_minimo(a, n, dim);
-    printf("%d", risultato);
+    printf("\n");
+    delta_minimo(a, n, dim);
+    
+    
 
     return 0;
 
