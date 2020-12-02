@@ -44,7 +44,7 @@ int main(void) {
     int dim, indice;
     int i = 0;
 
-    printf("\nInserire dimensione array: "); 
+    printf("Inserire dimensione array: "); 
     scanf("%d", &dim);
     int a[dim];
 

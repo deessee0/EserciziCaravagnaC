@@ -1,33 +1,17 @@
 #include<stdio.h>
+#include <stdlib.h>
 
-void scambia(int v[], int dim, int i, int j){
-
-    if(dim > 0)
-    {
-        if((i >= 0) && (i <= dim) && (j >= 0) && (j <= dim))
-        {
-            int tmp = v[i];
-            v[i] = v[j];
-            v[j] = tmp;
-        }
-    }
-}
-
-int minimo(int a[], int dim)
-    {
-
-    int valoreMinimo = a[0], locazione = 0, i;
-
-    for(i=0; i < dim; i++)
-    {
-        if ( a[i] < valoreMinimo ) 
-        {
-            valoreMinimo = a[i];
-            locazione = i;
-        }
-    } 
+int delta_minimo(int a[], int n, int dim)
+{
     
-    return locazione;
+    for(int i = 0; i<dim; i++)
+    {
+        if(abs(a[i]) )
+    }
+    
+    
+    
+    return 0;
 }
 
 void stampa_vettore(int a[], int dim)
@@ -41,10 +25,11 @@ void stampa_vettore(int a[], int dim)
 }
 
 int main(void) {
-    int dim, indice;
+    int dim;
     int i = 0;
+    int n, risultato;
 
-    printf("\nInserire dimensione array: "); 
+    printf("Inserire dimensione array: "); 
     scanf("%d", &dim);
     int a[dim];
 
@@ -57,16 +42,15 @@ int main(void) {
     
     printf("\n");
 
-    indice = minimo(a, dim);
-    printf("-------------------------------\n");
-    printf("L'indice minore è: %d\n", indice);
-    
-    scambia(a,dim, 0, indice);
+    printf("Inserisci il numero che vuoi ricercare nell'array: ");
+    scanf("%d", &n);
 
-    printf("\nQuesto è l'array con il valore minimo in testa:\n");
-
+    printf("----------------------------\nVettore inserito:\n");
     stampa_vettore(a, dim);
-    
+    printf("----------------------------\nIntero in valore assoluto più vicino a quello fornito: ");
+    risultato = delta_minimo(a, n, dim);
+    printf("%d", risultato);
+
     return 0;
 
 }
