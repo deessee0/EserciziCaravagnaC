@@ -1,33 +1,27 @@
 #include<stdio.h>
 #include <stdlib.h>
 
+int minimo(int a[], int dim)
+    {
 
-struct Dati 
-{
-    int valore, indice;
-};
-
-struct Dati minimo(int a[], int dim)
-{
-    struct Dati valori_minimi = {a[0], 0};
-    int i;
+    int valoreMinimo = a[0], locazione = 0, i;
 
     for(i=0; i < dim; i++)
     {
-        if ( a[i] < valori_minimi.valore ) 
+        if ( a[i] < valoreMinimo ) 
         {
-            valori_minimi.valore = a[i];
-            valori_minimi.indice = i;
+            valoreMinimo = a[i];
+            locazione = i;
         }
     } 
     
-    return valori_minimi;
+    return locazione;
 }
 
 void delta_minimo(int a[], int n, int dim)
 {
     int differenza[dim];
-    struct Dati risultato;
+    int risultato;
 
 
     for(int i = 0; i<dim; i++)
@@ -44,9 +38,8 @@ void delta_minimo(int a[], int n, int dim)
 
     risultato = minimo(differenza, dim); 
     
-    printf("\nValore dell'intero in valore assoluto più vicino a quello fornito: %d", risultato.valore);
-
-    printf("\nIndice dell'intero in valore assoluto più vicino a quello fornito: %d", risultato.indice);
+    
+    printf("----------------------------\nIntero in valore assoluto più vicino a quello fornito: %d", a[risultato]);
 
 }
 
@@ -65,8 +58,7 @@ int main(void) {
     int i = 0;
     int n, risultato;
 
-    printf("-----------------------");
-    printf("\nInserire dimensione array: "); 
+    printf("Inserire dimensione array: "); 
     scanf("%d", &dim);
     int a[dim];
 
@@ -77,13 +69,14 @@ int main(void) {
         scanf("%d", &a[i]);
     }
     
-    printf("-----------------------\n");
+    printf("\n");
 
     printf("Inserisci il numero che vuoi ricercare nell'array: ");
     scanf("%d", &n);
 
-    printf("-----------------------\n");
-
+    printf("----------------------------\nVettore inserito:\n");
+    stampa_vettore(a, dim);
+    printf("\n");
     delta_minimo(a, n, dim);
     
     
