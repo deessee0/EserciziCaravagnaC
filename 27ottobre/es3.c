@@ -1,12 +1,46 @@
 #include<stdio.h>
+#include <stdlib.h>
 
-void vettore_fattoriale(int a[], int dim)
-{
-
-    for(int i=0; i<dim; i++)
+int minimo(int a[], int dim)
     {
-        a[i] = 
+
+    int valoreMinimo = a[0], locazione = 0;
+
+    for(int i=0; i < dim; i++)
+    {
+        if ( a[i] < valoreMinimo ) 
+        {
+            valoreMinimo = a[i];
+            locazione = i;
+        }
+    } 
+    
+    return locazione;
+}
+
+void delta_minimo(int a[], int n, int dim)
+{
+    int differenza[dim];
+    int risultato;
+
+
+    for(int i = 0; i<dim; i++)
+    {
+        if(abs(a[i]) > n)
+        {
+            differenza[i] = abs(a[i]) - n;
+            
+        }   else   {
+
+            differenza[i] = n - abs(a[i]);
+        }         
     }
+
+    risultato = minimo(differenza, dim); 
+    
+    
+    printf("----------------------------\nIntero in valore assoluto più vicino a quello fornito: %d", a[risultato]);
+
 }
 
 void stampa_vettore(int a[], int dim)
