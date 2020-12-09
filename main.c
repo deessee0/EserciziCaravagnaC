@@ -24,20 +24,17 @@ int min(int* a, int *b)
 
 void ordine_crescente(int* a, int* b, int* c, int* d)
 {
-    int tmp;
-
-    tmp = min(a,b);
-    printf("\nla var tmp: %d\n", tmp);
-    scambia(&tmp, b);
-
-    tmp = min(b, c);
-    printf("\nla var tmp: %d\n", tmp);
-    scambia(&tmp, c);
-
-    tmp = min(c, d);
-    printf("\nla var tmp: %d\n", tmp);
-    scambia(&tmp, d);
-    
+    for(int i = 0; i<4; i++)
+    {
+        if (min(a,b) == *a)
+        {
+            scambia(a, b);
+        } else if ((min(b,c) == *b)) {
+            scambia(b,c);
+        } else if ((min(c,d) == *c)) {
+            scambia(c, d);
+        }
+    } 
 }
 
 int main(void) 
