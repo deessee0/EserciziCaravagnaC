@@ -1,44 +1,31 @@
 #include<stdio.h>
-#include <stdlib.h>
 
-int calcolaFattoriale(int n)
+void ordine_crescente(int* a, int* b, int* c, int* d)
 {
-    if (n == 1)
-        return 1;
-    else
-        return n * calcolaFattoriale(n - 1);
-}
-void stampa_vettore(int a[], int dim)
-{
-
-    for(int i=0; i<dim; i++)
+    if(*a > *b)
     {
-        printf("a[%d] = ", i);
-        printf("%d\n", a[i]);
+        
     }
 }
 
-int main(void) {
-    int dim;
+void scambia(int* a, int* b)
+{
+    int tmp;
+    tmp = *a;
+    *a = *b;
+    *b = tmp;
+}
 
-    printf("Inserire dimensione array: "); 
-    scanf("%d", &dim);
-    int a[dim];
+int calcola_minimo(int* a, int* b)
+{
+    if(*a > *b) return *a;
+    else return *b;
+}
 
-    //inizializzo array a
-    for(int i=0; i<dim; i++)
-    {
-        printf("a[%d] = ", i);
-        scanf("%d", &a[i]);
-    }
+int main(void) 
+{
     
-    printf("---------------------------------\n");
 
-    for(int i=0; i<dim; i++)
-    {
-        a[i] = calcolaFattoriale(a[i]);
-        printf("Il fattoriale di a[%d] è: %d\n", i, a[i]);
-    }   
 
     return 0;
 
