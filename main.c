@@ -1,48 +1,13 @@
 #include<stdio.h>
 #include <stdlib.h>
 
-int minimo(int a[], int dim)
-    {
-
-    int valoreMinimo = a[0], locazione = 0, i;
-
-    for(i=0; i < dim; i++)
-    {
-        if ( a[i] < valoreMinimo ) 
-        {
-            valoreMinimo = a[i];
-            locazione = i;
-        }
-    } 
-    
-    return locazione;
-}
-
-void delta_minimo(int a[], int n, int dim)
+int calcolaFattoriale(int n)
 {
-    int differenza[dim];
-    int risultato;
-
-
-    for(int i = 0; i<dim; i++)
-    {
-        if(abs(a[i]) > n)
-        {
-            differenza[i] = abs(a[i]) - n;
-            
-        }   else   {
-
-            differenza[i] = n - abs(a[i]);
-        }         
-    }
-
-    risultato = minimo(differenza, dim); 
-    
-    
-    printf("----------------------------\nIntero in valore assoluto più vicino a quello fornito: %d", a[risultato]);
-
+    if (n == 1)
+        return 1;
+    else
+        return n * calcolaFattoriale(n - 1);
 }
-
 void stampa_vettore(int a[], int dim)
 {
 
@@ -55,8 +20,6 @@ void stampa_vettore(int a[], int dim)
 
 int main(void) {
     int dim;
-    int i = 0;
-    int n, risultato;
 
     printf("Inserire dimensione array: "); 
     scanf("%d", &dim);
@@ -69,17 +32,13 @@ int main(void) {
         scanf("%d", &a[i]);
     }
     
-    printf("\n");
+    printf("---------------------------------\n");
 
-    printf("Inserisci il numero che vuoi ricercare nell'array: ");
-    scanf("%d", &n);
-
-    printf("----------------------------\nVettore inserito:\n");
-    stampa_vettore(a, dim);
-    printf("\n");
-    delta_minimo(a, n, dim);
-    
-    
+    for(int i=0; i<dim; i++)
+    {
+        a[i] = calcolaFattoriale(a[i]);
+        printf("Il fattoriale di a[%d] è: %d\n", i, a[i]);
+    }   
 
     return 0;
 

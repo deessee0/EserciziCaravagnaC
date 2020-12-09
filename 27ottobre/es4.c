@@ -1,14 +1,12 @@
 #include<stdio.h>
 
-void vettore_fattoriale(int a[], int dim)
+int calcolaFattoriale(int n)
 {
-
-    for(int i=0; i<dim; i++)
-    {
-        a[i] = 
-    }
+    if (n == 1)
+        return 1;
+    else
+        return n * calcolaFattoriale(n - 1);
 }
-
 void stampa_vettore(int a[], int dim)
 {
 
@@ -21,8 +19,6 @@ void stampa_vettore(int a[], int dim)
 
 int main(void) {
     int dim;
-    int i = 0;
-    int n, risultato;
 
     printf("Inserire dimensione array: "); 
     scanf("%d", &dim);
@@ -35,17 +31,13 @@ int main(void) {
         scanf("%d", &a[i]);
     }
     
-    printf("\n");
+    printf("---------------------------------\n");
 
-    printf("Inserisci il numero che vuoi ricercare nell'array: ");
-    scanf("%d", &n);
-
-    printf("----------------------------\nVettore inserito:\n");
-    stampa_vettore(a, dim);
-    printf("\n");
-    delta_minimo(a, n, dim);
-    
-    
+    for(int i=0; i<dim; i++)
+    {
+        a[i] = calcolaFattoriale(a[i]);
+        printf("Il fattoriale di a[%d] è: %d\n", i, a[i]);
+    }   
 
     return 0;
 
