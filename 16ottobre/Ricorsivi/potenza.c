@@ -24,8 +24,8 @@ int main(void) {
 int pot_ricorsivo(int base, int esponente)
 {
 
-     if (esponente == 1)
+    if (esponente == 1)
           return base;
  
-     return base*pot_ricorsivo(base, esponente-1);
+    return base*pot_ricorsivo(base, esponente-1);
 }
