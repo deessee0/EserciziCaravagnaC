@@ -2,13 +2,13 @@
 
 void somma_armonica(int n, double* h)
 {
+
     if(n == 1)
     {
-        *h = *h + 1;
-    } else {
-        *h = *h + (1/n);
-        somma_armonica(n-1, h);
-        
+        *h = 1.0 + *h;
+    } else {       
+        *h =  *h + (1.0/n);
+        somma_armonica(n-1,h);     
     }
            
 }
@@ -16,7 +16,7 @@ void somma_armonica(int n, double* h)
 int main(void) 
 {
     int n;
-    double risultato = 1;
+    double risultato;
 
     printf("Inserisci n: ");
     scanf("%d", &n);
