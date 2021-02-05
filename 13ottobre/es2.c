@@ -11,7 +11,7 @@ int main(void) {
   printf("Secondo numero: ");
   scanf("%d", &b);
 
-	printf("Terzo numero: ");
+  printf("Terzo numero: ");
   scanf("%d", &c);
 
   risultato = max_finder(a,b,c);

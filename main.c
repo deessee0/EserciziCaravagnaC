@@ -1,8 +1,8 @@
 #include <stdio.h>
 
-void isPrime(int dim, int a[])
+void isCoPrime(int dim, int a[])
 {
-    int contatore = 0, prime;
+    int contatore = 0, coprime;
     int b[dim];
 
     //per tutti i numeri dell'array
@@ -13,14 +13,14 @@ void isPrime(int dim, int a[])
             //sono divisibili?
             if(a[i] % a[j] != 0)
             {
-                prime = 0;                        
+                coprime = 0;                        
             } else if (i != j)  {
                 contatore++;
-                prime = 1;
+                coprime = 1;
             }
         }
 
-        if(prime == 1)
+        if(coprime == 1)
         {
             b[i] = a[i];
         } else {
@@ -56,7 +56,7 @@ int main(void) {
 
     printf("\n");
     printf("----------------------------\n");
-    isPrime(dim,a);
+    isCoPrime(dim,a);
 
   return 0;
 }
