@@ -10,13 +10,12 @@ void isPrime(int dim, int a[])
     {
         for(int j=0; j<dim; j++)
         {
-            //sono divisibili?
-            if(a[i] % a[j] != 0)
+            prime = 0;
+            //sono co-primi?
+            if((i != j) && (a[i] % a[j] != 0))
             {
-                prime = 0;                        
-            } else if (i != j)  {
-                contatore++;
                 prime = 1;
+                break;                     
             }
         }
 
@@ -25,24 +24,16 @@ void isPrime(int dim, int a[])
             b[i] = a[i];
         } else {
             b[i] = 0;
-        }          
-    }
-
-    int clean_b[contatore], j = 0;
-
-    for(int i = 0; i < dim; i++)
-    {
-        if(b[i] != 0 && j < contatore ){
-            clean_b[j] = b[i];
-            j++;     
-            printf("Il numero %d è co-primo", b[i]);       
         }
+
+        printf("b[%d] = %d\n",i, b[i]);          
     }
+
+   
 }
 
 
 int main(void) {
-    //var dim, tre array
     int dim; 
     printf("inserire dimensione array: "); 
     scanf("%d", &dim);
