@@ -22,7 +22,12 @@ float calcolo_perimetro(Triangolo* t)
 
 void similitudine(Triangolo t1, Triangolo* t2)
 {
-
+    if((t1.alfa == t2->alfa) && (t1.beta == t2->beta) && (t1.gamma == t2->gamma))
+    {
+        printf("\n0 - l'equivalenza è vera");
+    } else {
+        printf("\n1 - l'equivalenza è falsa");
+    }
     
 }
 
@@ -72,7 +77,10 @@ int main() {
   scanf("%d", &x2.ac);
 
 //----------------------------------------
-
+    float primo = calcolo_perimetro(&x1);
+    float secondo = calcolo_perimetro(&x2);
+    printf("primo: %f\nsecondo: %f", primo, secondo);
+    similitudine(x1, &x2);
   
 
   return(0);
